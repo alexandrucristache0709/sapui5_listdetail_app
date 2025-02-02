@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName="student##.com.sap.training.ux402.listdetail.ux402listdetail.controller.DetailObjectNotFound"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <MessagePage
+        id="detailObjectNotFoundPage"
+        title="{i18n>detailTitle}"
+        text="{i18n>noObjectFoundText}"
+        icon="sap-icon://document"
+    />
+</mvc:View>

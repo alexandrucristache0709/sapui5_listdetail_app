@@ -1,0 +1,156 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "acristache.com.sap.training.ux402.listdetail.ux402listdetail",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.3",
+            "toolsId": "d79a4065-e8d6-4248-96c9-e3abeafc7bb5"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/here/goes/your/serviceurl/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.132.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "acristache.com.sap.training.ux402.listdetail.ux402listdetail.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "acristache.com.sap.training.ux402.listdetail.ux402listdetail.view",
+                "async": true,
+                "controlAggregation": "beginColumnPages",
+                "controlId": "layout",
+                "bypassed": {
+                    "target": [
+                        "masterlist",
+                        "notFound"
+                    ]
+                }
+            },
+            "routes": [
+                {
+                    "name": "masterlist",
+                    "pattern": "",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "masterlist"
+                    ]
+                },
+                {
+                    "name": "carrierdetails",
+                    "pattern": "Carriers/{objectId}",
+                    "titleTarget": "",
+                    "greedy": false,
+                    "target": [
+                        "masterlist",
+                        "carrierdetails"
+                    ]
+                }
+            ],
+            "targets": {
+                "masterlist": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "ControlAggregation": "beginColumnPages",
+                    "viewName": "List",
+                    "viewId": "list",
+                    "viewLevel": 1
+                },
+                "carrierdetails": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "controlAggregation": "midColumnPages",
+                    "viewName": "Detail",
+                    "viewId": "carrierdetails",
+                    "viewLevel": 2
+                },
+                "notFound": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "controlAggregation": "midColumnPages",
+                    "clearControlAggregation": true,
+                    "viewId": "notFound",
+                    "viewName": "NotFound"
+                },
+                "detailObjectNotFound": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "controlAggregation": "midColumnPages",
+                    "clearControlAggregation": true,
+                    "viewId": "detailObjectNotFound",
+                    "viewName": "DetailObjectNotFound"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "acristache.com.sap.training.ux402.listdetail.ux402listdetail.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

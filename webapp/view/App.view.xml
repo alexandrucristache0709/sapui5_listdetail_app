@@ -1,0 +1,15 @@
+<mvc:View
+    controllerName="acristache.com.sap.training.ux402.listdetail.ux402listdetail.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns="sap.m"
+>
+    <App id="app">
+        <f:FlexibleColumnLayout
+            id="layout"
+            layout="{mainView>/layout}"
+            backgroundDesign="Translucent"
+        />
+    </App>
+</mvc:View>
