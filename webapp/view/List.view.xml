@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="acristache..com.sap.training.ux402.listdetail.ux402listdetail.controller.List"
+    controllerName="acristache.com.sap.training.ux402.listdetail.ux402listdetail.controller.List"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
     xmlns="sap.m"

@@ -4,7 +4,7 @@ sap.ui.define([
     "sap/ui/core/routing/History"
 ], function (Controller, History) {
     "use strict";
-    return Controller.extend("acristache..com.sap.training.ux402.listdetail.ux402listdetail.controller.BaseController", {
+    return Controller.extend("acristache.com.sap.training.ux402.listdetail.ux402listdetail.controller.BaseController", {
 
         getRouter: function () {
             return this.getOwnerComponent().getRouter();

@@ -9,7 +9,7 @@ sap.ui.define([
     function (Controller, Device) {
         "use strict";
 
-        return Controller.extend("acristache..com.sap.training.ux402.listdetail.ux402listdetail.controller.List", {
+        return Controller.extend("acristache.com.sap.training.ux402.listdetail.ux402listdetail.controller.List", {
             onInit() {
                 this._oList = this.byId("list");
 
@@ -31,6 +31,7 @@ sap.ui.define([
                 */
                 this.getView().addEventDelegate({
                     onBeforeFirstShow: function () {
+                        //only called once when page is first shown
                         this.getOwnerComponent().oListSelector.setBoundMasterList(this._oList);
                     }.bind(this)
                 });
@@ -48,7 +49,7 @@ sap.ui.define([
                         if (mParams.list.getMode() === "None") {
                             return;
                         }
-                        var sObjectId = mParams.firstListitem.getBindingContext().getProperty("Carrid");
+                        var sObjectId = mParams.oFirstListitem.getBindingContext().getProperty("Carrid");
                         this._navigateToCarrierDetails(sObjectId, true);
                     }.bind(this)
                 );

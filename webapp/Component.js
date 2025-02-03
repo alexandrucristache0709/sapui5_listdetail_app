@@ -5,7 +5,7 @@ sap.ui.define([
 ], (UIComponent, models, ListSelector) => {
     "use strict";
 
-    return UIComponent.extend("acristache..com.sap.training.ux402.listdetail.ux402listdetail.Component", {
+    return UIComponent.extend("acristache.com.sap.training.ux402.listdetail.ux402listdetail.Component", {
         metadata: {
             manifest: "json",
             interfaces: [

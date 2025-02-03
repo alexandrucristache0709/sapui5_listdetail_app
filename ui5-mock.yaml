@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: acristache..com.sap.training.ux402.listdetail.ux402listdetail
+  name: acristache.com.sap.training.ux402.listdetail.ux402listdetail
 type: application
 server:
   customMiddleware:
@@ -27,7 +27,7 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: acristache..com.sap.training.ux402.listdetail.ux402listdetail
+        component: acristache.com.sap.training.ux402.listdetail.ux402listdetail
         ui5Theme: sap_horizon
     - name: sap-fe-mockserver
       beforeMiddleware: csp

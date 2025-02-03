@@ -9,7 +9,7 @@ sap.ui.define([
     function (Controller, Device) {
         "use strict";
 
-        return Controller.extend("acristache..com.sap.training.ux402.listdetail.ux402listdetail.controller.Detail", {
+        return Controller.extend("acristache.com.sap.training.ux402.listdetail.ux402listdetail.controller.Detail", {
 
             onInit: function () {
                 this.getRouter().getRoute("carrierdetails").attachPatternMatched(this._onObjectMatched, this);
@@ -17,7 +17,7 @@ sap.ui.define([
 
             _onObjectMatched: function (oEvent) {
                 this.getView().getModel("mainView").setProperty("/layout", "TwoColumnsMidExpanded");
-
+                
                 /*
                 arguments => A key-value pair object which contains the arguments defined in the route resolved with the corresponding information from the current URL hash
                 e.g. "pattern": "Carriers/{objectId}"

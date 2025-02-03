@@ -10,7 +10,7 @@
 |**Metadata File**<br>metadata.xml|
 |**Module Name**<br>ux402_listdetail|
 |**Application Title**<br>List-detail Application|
-|**Namespace**<br>acristache..com.sap.training.ux402.listdetail|
+|**Namespace**<br>acristache.com.sap.training.ux402.listdetail|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.132.1|
 |**Enable Code Assist Libraries**<br>False|
