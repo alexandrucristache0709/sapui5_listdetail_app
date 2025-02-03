@@ -1,7 +1,7 @@
 {
     "_version": "1.65.0",
     "sap.app": {
-        "id": "acristache.com.sap.training.ux402.listdetail.ux402listdetail",
+        "id": "acristache..com.sap.training.ux402.listdetail.ux402listdetail",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -60,7 +60,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "acristache.com.sap.training.ux402.listdetail.ux402listdetail.i18n.i18n"
+                    "bundleName": "acristache..com.sap.training.ux402.listdetail.ux402listdetail.i18n.i18n"
                 }
             },
             "": {
@@ -80,10 +80,10 @@
             "config": {
                 "routerClass": "sap.m.routing.Router",
                 "viewType": "XML",
-                "viewPath": "acristache.com.sap.training.ux402.listdetail.ux402listdetail.view",
+                "viewPath": "acristache..com.sap.training.ux402.listdetail.ux402listdetail.view",
                 "async": true,
-                "controlAggregation": "beginColumnPages",
                 "controlId": "layout",
+                "controlAggregation": "beginColumnPages",
                 "bypassed": {
                     "target": [
                         "masterlist",
@@ -148,7 +148,7 @@
             }
         },
         "rootView": {
-            "viewName": "acristache.com.sap.training.ux402.listdetail.ux402listdetail.view.App",
+            "viewName": "acristache..com.sap.training.ux402.listdetail.ux402listdetail.view.App",
             "type": "XML",
             "id": "App"
         }

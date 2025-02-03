@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
     "use strict";
 
-    return BaseObject.extend("acristache.com.sap.training.ux402.listdetail.ux402listdetail.controller.ListSelector",
+    return BaseObject.extend("acristache..com.sap.training.ux402.listdetail.ux402listdetail.controller.ListSelector",
         {
 
             constructor: function () {
@@ -16,10 +16,11 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
                 this.oWhenListLoadingIsDone = new Promise(function (fnResolve, fnReject) {
                     this._oWhenListHasBeenSet
                         .then(function (oList) {
-                            //how does attachEventOnce work? when is "dataReceived" triggered?
+                            //when is "dataReceived" triggered?
+                            // maybe: class sap.ui.model.ContextBinding -> attachEventOnce
                             oList.getBinding("items").attachEventOnce("dataReceived",
-                                function (oData) {
-                                    if (!oData.getParameter("data")) {
+                                function (oEvent) {
+                                    if (!oEvent.getParameter("data")) {
                                         fnReject({
                                             list: oList,
                                             error: true
@@ -29,7 +30,7 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
                                     if (oFirstListItem) {
                                         fnResolve({
                                             list: oList,
-                                            oFirstListItem: oFirstListItem
+                                            firstListItem: oFirstListItem
 
                                         })
                                     }
@@ -54,11 +55,23 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
             selectAListItem: function (sBindingPath) {
                 this.oWhenListLoadingIsDone.then(
                     function () {
+                        //class sap.m.ListBase
                         var oList = this._oList;
+
+                        /*
+                        Gets current value of property mode.
+                        Defines the mode of the control (e.g. None, SingleSelect, MultiSelect, Delete).
+                        Default value is None.
+                        */
                         if (oList.getMode() === "None") {
                             return;
                         }
 
+                        /*
+                        Returns selected list item. 
+                        When no item is selected, "null" is returned. 
+                        When "multi-selection" is enabled and multiple items are selected, only the up-most selected item is returned.
+                        */
                         var oSelectedItem = oList.getSelectedItem();
 
                         // skip update if the current selection is already matching the object path
@@ -68,6 +81,7 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
                         //what does the some function do?
                         oList.getItems().some(function (oItem) {
                             if (oItem.getBindingContext() && oItem.getBindingContext().getPath() === sBindingPath) {
+                                //Selects or deselects the given list item.
                                 oList.setSelectedItem(oItem);
                                 return true;
                             }
@@ -77,6 +91,7 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
 
             clearMasterListSelection: function () {
                 this._oWhenListHasBeenSet.then(function () {
+                    //class sap.m.ListBase: Removes visible selections of the current selection mode.
                     this._oList.removeSelections(true);
                 }.bind(this));
             }

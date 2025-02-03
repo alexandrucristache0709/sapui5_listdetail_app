@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "acristache.com.sap.training.ux402.listdetail.ux402listdetail.view.",
+		viewNamespace: "acristache..com.sap.training.ux402.listdetail.ux402listdetail.view.",
 		autoWait: true
 	});
 });
