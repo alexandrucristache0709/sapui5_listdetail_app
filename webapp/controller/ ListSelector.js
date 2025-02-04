@@ -59,7 +59,7 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
             },
 
             /*
-            calling this fn fulfills the first Promise, i.e _oWhenListHasBeenSet
+            calling this fn fulfills the first Promise, i.e _oWhenListHasBeenSet, and sets the List as value of the Promise
             called from the init method of the List-control
             */
             setBoundMasterList: function (oList) {
