@@ -32,21 +32,23 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
                                 "dataReceived",
                                 function (oEvent) {
                                     if (!oEvent.getParameter("data")) {
+                                        //reject Promise if data is not received from the model
                                         fnReject({
                                             list: oList,
                                             error: true
                                         });
                                     }
+                                    //fulfill Promise if first item can be selected
                                     var oFirstListItem = oList.getItems()[0];
                                     if (oFirstListItem) {
                                         fnResolve({
                                             list: oList,
-                                            oFirstListItem: oFirstListItem
+                                            firstListItem: oFirstListItem
 
                                         })
                                     }
                                     else {
-                                        // No items in the list
+                                        //reject Promise if no items in the list
                                         fnReject({
                                             list: oList,
                                             error: false
@@ -59,7 +61,7 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
             },
 
             /*
-            calling this fn fulfills the first Promise, i.e _oWhenListHasBeenSet
+            calling this fn fulfills the first Promise, i.e _oWhenListHasBeenSet, and sets the List as value of the Promise
             called from the init method of the List-control
             */
             setBoundMasterList: function (oList) {
@@ -77,6 +79,7 @@ sap.ui.define(["sap/ui/base/Object"], function (BaseObject) {
                         Gets current value of property mode.
                         Defines the mode of the control (e.g. None, SingleSelect, MultiSelect, Delete).
                         Default value is None.
+                        On a phone, no selection will happen
                         */
                         if (oList.getMode() === "None") {
                             return;

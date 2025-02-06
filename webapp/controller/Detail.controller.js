@@ -36,6 +36,7 @@ sap.ui.define([
                 this.getView().bindElement({
                     path: sObjectPath,
                     events: {
+                        //after binding context is changed
                         change: this._onBindingChange.bind(this),
                         dataRequested: function () {
                             oView.setBusy(true);
@@ -49,14 +50,14 @@ sap.ui.define([
 
             _onBindingChange: function () {
                 var oElementBinding = this.getView().getElementBinding();
-
+                //for invalid binding path
                 if (!oElementBinding.getBoundContext()) {
-                    //other way to display targets than navTo??
+                    //other way to display targets than navTo
                     this.getRouter().getTargets().display("detailObjectNotFound");
                     this.getOwnerComponent().oListSelector.clearMasterListSelection();
                     return;
                 }
-
+                //for valid binding path
                 var sPath = oElementBinding.getPath();
                 this.getOwnerComponent().oListSelector.selectAListItem(sPath);
             }

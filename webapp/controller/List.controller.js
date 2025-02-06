@@ -30,8 +30,9 @@ sap.ui.define([
                 You can use the addEventDelegate function to register to these events. This function is available on every control.
                 */
                 this.getView().addEventDelegate({
+                    //Only called once when page is first shown.
                     onBeforeFirstShow: function () {
-                        //only called once when page is first shown
+                        //Pass the list to the ListSelector.
                         this.getOwnerComponent().oListSelector.setBoundMasterList(this._oList);
                     }.bind(this)
                 });
@@ -49,7 +50,7 @@ sap.ui.define([
                         if (mParams.list.getMode() === "None") {
                             return;
                         }
-                        var sObjectId = mParams.oFirstListitem.getBindingContext().getProperty("Carrid");
+                        var sObjectId = mParams.firstListitem.getBindingContext().getProperty("Carrid");
                         this._navigateToCarrierDetails(sObjectId, true);
                     }.bind(this)
                 );
@@ -63,7 +64,7 @@ sap.ui.define([
 
             onBypassed: function () {
                 //class sap.m.ListBase: Removes visible selections of the current selection mode.
-                this._oList.removeSelections(true); 
+                this._oList.removeSelections(true);
             },
 
             //see: /home/user/projects/ux402_listdetail/webapp/view/List.view.xml
